@@ -1,8 +1,6 @@
 package Main;
-
 import org.example.Camion;
-
-
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -24,9 +22,19 @@ public class Menu {
                 camion.setChofer(sn.next());
                 System.out.println("Nueva Patente:");
                 camion.setPatente(sn.next());
+            } else if (aux==0){
+                System.out.println("Adios!!");
             } else {
-                System.out.println("Se ha ingresado un numero no correspondiente");
+                System.out.println("Se ha ingresado un valor no correspondiente");
             }
+        }
+    }
+
+    public static void validarIniciar() {
+        try {
+            iniciar();
+        }catch (InputMismatchException e){
+            System.out.println("Se ingresó un valor no correspondiente\nPor favor, intentelo nuevamente");
         }
     }
 }
